@@ -20,6 +20,25 @@ func ExampleNavigator_Right() {
 	// 2,2
 }
 
+func ExampleNavigator_Right_full() {
+	// Start outside the matrix
+	x, y := -1, 0
+	nav := NewXYNavigator(x, y, 0, 0, 2, 2)
+	for x, y, more := nav.Right(); more; x, y, more = nav.Right() {
+		fmt.Printf("%v,%v\n", x, y)
+	}
+	// output:
+	// 0,0
+	// 1,0
+	// 2,0
+	// 0,1
+	// 1,1
+	// 2,1
+	// 0,2
+	// 1,2
+	// 2,2
+}
+
 func ExampleNavigator_Up() {
 	nav := NewXYNavigator(1, 1, 0, 0, 1, 1)
 	for x, y, more := nav.Up(); more; x, y, more = nav.Up() {
