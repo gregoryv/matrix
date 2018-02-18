@@ -5,11 +5,13 @@ import (
 )
 
 func ExampleNavigator_Right() {
-	nav := NewXYNavigator(0, 0, 0, 0, 2, 2)
-	for x, y, more := nav.Right(); more; x, y, more = nav.Right() {
+	x, y, inside := 0, 0, true
+	nav := NewXYNavigator(x, y, 0, 0, 2, 2)
+	for ; inside; x, y, inside = nav.Right() {
 		fmt.Printf("%v,%v\n", x, y)
 	}
 	// output:
+	// 0,0
 	// 1,0
 	// 2,0
 	// 0,1
@@ -21,10 +23,9 @@ func ExampleNavigator_Right() {
 }
 
 func ExampleNavigator_Right_full() {
-	// Start outside the matrix
-	x, y := -1, 0
-	nav := NewXYNavigator(x, y, 0, 0, 2, 2)
-	for x, y, more := nav.Right(); more; x, y, more = nav.Right() {
+	x, y, inside := 0, 0, true
+	nav := NewXYNavigator(x, y, x, y, 2, 2)
+	for ; inside; x, y, inside = nav.Right() {
 		fmt.Printf("%v,%v\n", x, y)
 	}
 	// output:
@@ -40,11 +41,13 @@ func ExampleNavigator_Right_full() {
 }
 
 func ExampleNavigator_Up() {
+	x, y, inside := 1, 1, true
 	nav := NewXYNavigator(1, 1, 0, 0, 1, 1)
-	for x, y, more := nav.Up(); more; x, y, more = nav.Up() {
+	for ; inside; x, y, inside = nav.Up() {
 		fmt.Printf("%v,%v\n", x, y)
 	}
 	// output:
+	// 1,1
 	// 1,0
 	// 0,1
 	// 0,0
@@ -62,11 +65,13 @@ func ExampleNavigator_Left() {
 }
 
 func ExampleNavigator_Down() {
-	nav := NewXYNavigator(1, 1, 1, 1, 2, 2)
-	for x, y, more := nav.Down(); more; x, y, more = nav.Down() {
+	x, y, inside := 1, 1, true
+	nav := NewXYNavigator(x, y, 1, 1, 2, 2)
+	for ; inside; x, y, inside = nav.Down() {
 		fmt.Printf("%v,%v\n", x, y)
 	}
 	// output:
+	// 1,1
 	// 1,2
 	// 2,1
 	// 2,2
