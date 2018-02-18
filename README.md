@@ -10,7 +10,7 @@
 Use this package to minimize complexity when navigatin 2D matrix structures.
 To loop over an matrix from top, left corner to bottom, right
 
-	x, y, inside := 0, 0, true
+	x, y, inside := 1, 1, true
 	nav := NewXYNavigator(x, y, 1, 1, 3, 3)
 	for ; inside; x, y, inside = nav.Right() {
 		// do something
