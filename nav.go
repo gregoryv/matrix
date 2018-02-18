@@ -2,7 +2,9 @@
 package position
 
 type XYNavigator struct {
-	x, y, xi, yi, xj, yj int
+	x, y   int // current position
+	xi, yi int // top-left corner
+	xj, yj int // bottom-right corner
 }
 
 func NewXYNavigator(x, y, xi, yi, xj, yj int) *XYNavigator {
@@ -15,8 +17,8 @@ func (nav *XYNavigator) Right() (x, y int, inside bool) {
 	nav.x++
 	if nav.x > nav.xj {
 		// next row
-		nav.y++
 		nav.x = nav.xi
+		nav.y++
 	}
 	return nav.x, nav.y, nav.y <= nav.yj
 }
@@ -25,8 +27,8 @@ func (nav *XYNavigator) Left() (x, y int, inside bool) {
 	nav.x--
 	if nav.x < nav.xi {
 		// previous row
-		nav.y--
 		nav.x = nav.xj
+		nav.y--
 	}
 	return nav.x, nav.y, nav.y >= nav.yi
 }
