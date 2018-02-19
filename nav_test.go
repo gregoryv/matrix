@@ -6,7 +6,8 @@ import (
 
 func ExampleNavigator_Right() {
 	x, y, inside := 0, 0, true
-	nav := NewXYNavigator(x, y, 0, 0, 2, 2)
+	boundary := Rect{x, y, 2, 2}
+	nav := NewXYNavigator(x, y, boundary)
 	for ; inside; x, y, inside = nav.Right() {
 		fmt.Printf("%v,%v\n", x, y)
 	}
@@ -24,7 +25,8 @@ func ExampleNavigator_Right() {
 
 func ExampleNavigator_Right_full() {
 	x, y, inside := 0, 0, true
-	nav := NewXYNavigator(x, y, x, y, 2, 2)
+	boundary := Rect{x, y, 2, 2}
+	nav := NewXYNavigator(x, y, boundary)
 	for ; inside; x, y, inside = nav.Right() {
 		fmt.Printf("%v,%v\n", x, y)
 	}
@@ -42,7 +44,8 @@ func ExampleNavigator_Right_full() {
 
 func ExampleNavigator_Up() {
 	x, y, inside := 1, 1, true
-	nav := NewXYNavigator(1, 1, 0, 0, 1, 1)
+	boundary := Rect{0, 0, x, y}
+	nav := NewXYNavigator(x, y, boundary)
 	for ; inside; x, y, inside = nav.Up() {
 		fmt.Printf("%v,%v\n", x, y)
 	}
@@ -54,7 +57,9 @@ func ExampleNavigator_Up() {
 }
 
 func ExampleNavigator_Left() {
-	nav := NewXYNavigator(2, 2, 1, 1, 2, 2)
+	x, y := 2, 2
+	boundary := Rect{1, 1, x, y}
+	nav := NewXYNavigator(x, y, boundary)
 	for x, y, more := nav.Left(); more; x, y, more = nav.Left() {
 		fmt.Printf("%v,%v\n", x, y)
 	}
@@ -66,7 +71,8 @@ func ExampleNavigator_Left() {
 
 func ExampleNavigator_Down() {
 	x, y, inside := 1, 1, true
-	nav := NewXYNavigator(x, y, 1, 1, 2, 2)
+	boundary := Rect{x, y, 2, 2}
+	nav := NewXYNavigator(x, y, boundary)
 	for ; inside; x, y, inside = nav.Down() {
 		fmt.Printf("%v,%v\n", x, y)
 	}
