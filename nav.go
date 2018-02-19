@@ -1,5 +1,5 @@
 // Package position implements iterator for matrix navigation
-package position
+package matrix
 
 type XYNavigator struct {
 	x, y   int // current position

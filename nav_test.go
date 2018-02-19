@@ -1,4 +1,4 @@
-package position
+package matrix
 
 import (
 	"fmt"
