@@ -11,6 +11,14 @@ type Rect struct {
 	Right, Bottom int // x,y of the bottom left corner
 }
 
+func NewNavigator(rows, cols int) (nav *XYNavigator, x, y int, inside bool) {
+	x, y = 0, 0
+	boundary := Rect{x, y, cols - 1, rows - 1}
+	nav = NewXYNavigator(x, y, boundary)
+	inside = true
+	return
+}
+
 func NewXYNavigator(x, y int, boundary Rect) *XYNavigator {
 	return &XYNavigator{x, y, boundary}
 }

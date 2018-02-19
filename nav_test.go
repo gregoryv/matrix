@@ -5,10 +5,7 @@ import (
 )
 
 func ExampleNavigator_Right() {
-	x, y, inside := 0, 0, true
-	boundary := Rect{x, y, 2, 2}
-	nav := NewXYNavigator(x, y, boundary)
-	for ; inside; x, y, inside = nav.Right() {
+	for nav, x, y, inside := NewNavigator(3, 3); inside; x, y, inside = nav.Right() {
 		fmt.Printf("%v,%v\n", x, y)
 	}
 	// output:
