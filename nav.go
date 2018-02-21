@@ -31,7 +31,7 @@ func (nav *XYNavigator) Right() (x, y int, inside bool) {
 		nav.x = nav.edge.Left
 		nav.y++
 	}
-	return nav.x, nav.y, nav.y <= nav.edge.Right
+	return nav.x, nav.y, nav.y <= nav.edge.Bottom
 }
 
 // Left returns next position left of the current and wraps lines until reaching xi, yi.

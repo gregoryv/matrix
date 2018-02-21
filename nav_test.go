@@ -20,6 +20,22 @@ func ExampleNavigator_Right() {
 	// 2,2
 }
 
+func ExampleNavigator_Right_rectangle() {
+	x, y, inside := 1, 1, true
+	boundary := Rect{x, y, 2, 3}
+	nav := NewXYNavigator(x, y, boundary)
+	for ; inside; x, y, inside = nav.Right() {
+		fmt.Printf("%v,%v\n", x, y)
+	}
+	// output:
+	// 1,1
+	// 2,1
+	// 1,2
+	// 2,2
+	// 1,3
+	// 2,3
+}
+
 func ExampleNavigator_Right_full() {
 	x, y, inside := 0, 0, true
 	boundary := Rect{x, y, 2, 2}
