@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.org/gregoryv/matrix.svg?branch=master)](https://travis-ci.org/gregoryv/matrix)
-[![codecov](https://codecov.io/gh/gregoryv/matrix/branch/master/graph/badge.svg)](https://codecov.io/gh/gregoryv/matrix)
-[![Maintainability](https://api.codeclimate.com/v1/badges/6c81180a66486a8c24ab/maintainability)](https://codeclimate.com/github/gregoryv/matrix/maintainability)
+ARCHIVED! Moved to https://sogvin.com/matrix
 
 [matrix](https://godoc.org/github.com/gregoryv/matrix) - Package implements iterator for matrix navigation
 
